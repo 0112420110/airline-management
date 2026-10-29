@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Aerowing Airlines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body class="auth-body">
+
+<a href="index.html" class="brandmark">
+    <svg viewBox="0 0 24 24"><path d="M22 16v-2l-8.5-5V3.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5V9L2 14v2l8.5-2.5V19L8 20.5V22l4-1 4 1v-1.5L13.5 19v-5.5L22 16z"/></svg>
+    Aerowing Airlines
+</a>
+
+<div class="pass">
+    <div class="pass-main">
+        <div class="pass-eyebrow">Boarding Pass · Sign In</div>
+        <h1>Welcome back</h1>
+
+        <div class="field">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="••••••••">
+        </div>
+        <button class="fly-btn" onclick="loginUser()">Log In &amp; Board</button>
+        <div id="message"></div>
+
+        <div class="signup-row">
+            New to Aerowing? <a href="register.html">Create an account</a>
+        </div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

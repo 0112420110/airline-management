@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flights - Aerowing Airlines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="brand">
+        <svg viewBox="0 0 24 24"><path d="M22 16v-2l-8.5-5V3.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5V9L2 14v2l8.5-2.5V19L8 20.5V22l4-1 4 1v-1.5L13.5 19v-5.5L22 16z"/></svg>
+        Aerowing Airlines
+    </div>
+    <div class="nav-right">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="flights.html" class="nav-link">Flights</a>
+        <a href="crew.html" class="nav-link admin-only-nav">Crew</a>
+        <a href="bookings.html" class="nav-link">My Bookings</a>
+        <a href="reports.html" class="nav-link admin-only-nav">Reports</a>
+        <button class="logout-btn" onclick="logout()">Log Out</button>
+    </div>
+</nav>
+
+<div class="content">
+    <div class="page-head">
+        <h2>Available Flights</h2>
+        <button class="add-toggle-btn" id="addToggleBtn" style="display:none;" onclick="toggleAddForm()">+ Add Flight</button>
+    </div>
+
+    <div class="panel" id="addFlightPanel">
+        <h3 style="margin-top:0; font-family:'Space Grotesk',sans-serif;">New Flight</h3>
+        <div class="form-grid">
+            <div class="field">
+                <label>Source</label>
+                <input type="text" id="source" placeholder="Dhaka">
+            </div>
+            <div class="field">
+                <label>Destination</label>
+                <input type="text" id="destination" placeholder="Dubai">
+            </div>
+            <div class="field">
+                <label>Departure</label>
+                <input type="datetime-local" id="departureTime">
+            </div>
+            <div class="field">
+                <label>Arrival</label>
+                <input type="datetime-local" id="arrivalTime">
+            </div>
+            <div class="field">
+                <label>Base Price (USD)</label>
+                <input type="number" id="basePrice" placeholder="450">
+            </div>
+            <div class="field">
+                <label>Aircraft</label>
+                <select id="aircraftId"></select>
+            </div>
+            <button class="submit-btn" onclick="createFlight()">Add Flight</button>
+            <div id="formMessage"></div>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div id="status">Loading flights...</div>
+        <div id="flightList"></div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+        <h3 id="modalRoute">Book this flight</h3>
+        <div class="modal-sub" id="modalMeta"></div>
+
+        <div class="field">
+            <label>Seat Class</label>
+            <select id="modalSeatClass" onchange="updateModalSeatsLeft()">
+                <option value="ECONOMY">Economy</option>
+                <option value="BUSINESS">Business</option>
+                <option value="FIRST_CLASS">First Class</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Number of Seats</label>
+            <input type="number" id="modalSeatCount" min="1" value="1" oninput="updateModalPriceEstimate()">
+        </div>
+        <div class="seats-left" id="modalSeatsLeft"></div>
+        <div class="seats-left" id="modalPriceEstimate" style="font-weight:600; color:var(--navy); margin-top:4px;"></div>
+
+        <div class="field" style="margin-top:14px;">
+            <label>Payment Method</label>
+            <select id="modalPaymentMethod">
+                <option value="CREDIT_CARD">Credit Card</option>
+                <option value="WALLET">Wallet</option>
+                <option value="NET_BANKING">Net Banking</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Card / Account Reference (simulated)</label>
+            <input type="text" id="modalPaymentRef" placeholder="e.g. 4111 (any value works)">
+        </div>
+
+        <div id="bookingMessage"></div>
+
+        <div class="modal-actions">
+            <button class="modal-cancel" onclick="closeBookingModal()">Cancel</button>
+            <button class="modal-confirm" onclick="confirmBooking()">Confirm Booking</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/flights.js"></script>
+<script src="js/assistant-widget.js"></script>
+
+</body>
+</html>

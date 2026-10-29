@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Aerowing Airlines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+        .stat-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(10,31,68,0.06);
+        }
+        .stat-card .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--slate);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .stat-card .value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .stat-card.negative .value { color: #b91c1c; }
+        .method-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eef1f5;
+            font-size: 13.5px;
+        }
+        .method-row:last-child { border-bottom: none; }
+        .occupancy-bar-track {
+            background: #eef1f5;
+            border-radius: 6px;
+            height: 8px;
+            overflow: hidden;
+            margin-top: 6px;
+        }
+        .occupancy-bar-fill {
+            background: var(--sky);
+            height: 100%;
+        }
+        .occupancy-bar-fill.high { background: #dc2626; }
+        .occupancy-bar-fill.mid { background: #F0A500; }
+        @media (max-width: 800px) {
+            .stat-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="brand">
+        <svg viewBox="0 0 24 24"><path d="M22 16v-2l-8.5-5V3.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5V9L2 14v2l8.5-2.5V19L8 20.5V22l4-1 4 1v-1.5L13.5 19v-5.5L22 16z"/></svg>
+        Aerowing Airlines
+    </div>
+    <div class="nav-right">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="flights.html" class="nav-link">Flights</a>
+        <a href="bookings.html" class="nav-link">My Bookings</a>
+        <a href="crew.html" class="nav-link admin-only-nav">Crew</a>
+        <a href="reports.html" class="nav-link admin-only-nav">Reports</a>
+        <button class="logout-btn" onclick="logout()">Log Out</button>
+    </div>
+</nav>
+
+<div class="content">
+    <div class="page-head">
+        <h2>Admin Reports</h2>
+    </div>
+
+    <div id="revenueStatus">Loading revenue summary...</div>
+    <div class="stat-grid" id="statGrid" style="display:none;"></div>
+
+    <div class="panel" id="methodPanel" style="display:none;">
+        <h3 style="margin-top:0;">Revenue by Payment Method</h3>
+        <div id="methodBreakdown"></div>
+    </div>
+
+    <div class="panel">
+        <h3 style="margin-top:0;">Flight-wise Seat Occupancy</h3>
+        <p class="desc">Booked seats vs. total capacity per flight.</p>
+        <div id="occupancyStatus">Loading occupancy data...</div>
+        <div id="occupancyList"></div>
+    </div>
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/reports.js"></script>
+<script src="js/assistant-widget.js"></script>
+
+</body>
+</html>

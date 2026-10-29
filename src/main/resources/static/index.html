@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerowing Airlines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<nav>
+    <div class="brand">
+        <svg viewBox="0 0 24 24"><path d="M22 16v-2l-8.5-5V3.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5V9L2 14v2l8.5-2.5V19L8 20.5V22l4-1 4 1v-1.5L13.5 19v-5.5L22 16z"/></svg>
+        Aerowing Airlines
+    </div>
+    <div class="nav-links">
+        <a href="login.html">Log In</a>
+        <a href="register.html" class="primary">Sign Up</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Fly further, for less.</h1>
+    <p>Search, compare, and book flights across our entire network in seconds.</p>
+
+    <div class="search-card">
+        <div class="search-field">
+            <label>From</label>
+            <input type="text" placeholder="Dhaka (DAC)">
+        </div>
+        <div class="search-field">
+            <label>To</label>
+            <input type="text" placeholder="Dubai (DXB)">
+        </div>
+        <div class="search-field">
+            <label>Departure</label>
+            <input type="date">
+        </div>
+        <button class="search-btn" onclick="searchFlights()" style="grid-column: 1 / -1; justify-self: center; width: auto; min-width: 200px; padding: 12px 40px;">Search Flights</button>
+        <div class="search-note" style="grid-column: 1 / -1; text-align: center; margin-top: 4px;">Log in to search live availability and book — this is a preview of the search experience.</div>
+    </div>
+</section>
+
+<div class="features">
+    <div class="feature-card">
+        <div class="num">01</div>
+        <h3>Real-time pricing</h3>
+        <p>Fares adjust dynamically based on demand, seat availability, and how close it is to departure.</p>
+    </div>
+    <div class="feature-card">
+        <div class="num">02</div>
+        <h3>Multi-leg journeys</h3>
+        <p>Book direct or connecting flights in a single transaction, with layover times calculated for you.</p>
+    </div>
+    <div class="feature-card">
+        <div class="num">03</div>
+        <h3>Earn while you fly</h3>
+        <p>Every trip builds toward Silver, Gold, and Platinum tiers — unlocking perks on future bookings.</p>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
