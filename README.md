@@ -106,11 +106,8 @@ On Windows use `mvnw.cmd spring-boot:run`. Then open <http://localhost:8080>.
 - Socket programming and multithreading in Java
 - Keeping secrets out of source code using environment variables
 
-## Screenshots
-
-*Add screenshots of the login page, flight search, booking, and admin dashboard here.*
 
 ## Contact
 
-- **GitHub:** [your-username](https://github.com/your-username)
-- **Email:** your-email@example.com
+- **GitHub:** [0112420110](https://github.com/0112420110)
+- **Email:** jnyemshourin@gmail.com
